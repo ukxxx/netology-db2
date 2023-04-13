@@ -8,7 +8,7 @@ name varchar(40) not null
 create table if not exists Performers (
 performer_id serial primary key,
 first_name varchar(60) not null,
-last_name varchar(60)not null,
+last_name varchar(60) not null,
 band_name varchar(60)
 );
 

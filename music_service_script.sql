@@ -1,7 +1,7 @@
 -- Создаем таблицу жанров
 create table if not exists Genres (
 genre_id serial primary key,
-name varchar(40) not null
+name varchar(40) unique not null
 );
 
 -- Создаем таблицу исполнителей
@@ -23,7 +23,7 @@ cover_art varchar(255) not null
 create table if not exists Tracks (
 track_id serial primary key,
 title varchar(60) not null,
-duration time,
+duration integer,
 album_id integer not null references Albums(album_id)
 );
 

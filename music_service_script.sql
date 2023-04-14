@@ -32,7 +32,7 @@ album_id integer not null references Albums(album_id)
 create table if not exists Compilations (
 compilation_id serial primary key,
 name varchar(60) not null,
-year integer not null,
+year integer not null check(year >= 1900),
 cover_art varchar(255) not null
 );
 

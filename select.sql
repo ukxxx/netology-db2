@@ -1,4 +1,4 @@
--- Добавляем в отношение albums параметр year, так как в прошлом задании такого параметра не создавали
+-- Добавляем в отношение "albums" параметр "year", так как в прошлом задании такого параметра не создавали
 alter table albums 
 add column year int;
 
@@ -19,7 +19,7 @@ update albums
 set year = 2021
 where album_id = 7 or album_id = 8;
 
--- Меняем название параметра name на более подходящее title в отношении albums
+-- Меняем название параметра "name" на более подходящее "title" в отношении albums
 ALTER TABLE albums
 RENAME COLUMN name TO title;
 
@@ -37,9 +37,9 @@ select title from tracks
 where duration >= 3.5 * 60;
 
 -- Выбираем названия сборников, вышедших в период с 2018 по 2020 год включительно.
--- Но сначала меняем название параметра name на более подходящее title в отношении compilations
-ALTER TABLE compilations 
-RENAME COLUMN name TO title;
+-- Но сначала меняем название параметра "name" на более подходящее "title" в отношении compilations
+alter table compilations 
+rename column name to title;
 
 select title from compilations
 where year between 2018 and 2020;
@@ -53,7 +53,7 @@ where first_name = 'Liam';
 select first_name, last_name from performers
 where first_name not like '% %';
 
--- Выбираем названия треков, которые содержат слова «мой» или «my» вне зависимости от регистра или положения в предложении.
+-- Выбираем названия треков, которые содержат слова «мой» или «my» вне зависимости от регистра или положения в предложении. 
 select title from tracks
 where title ilike 'my %' or title ilike '% my %' or title ilike '% my' 
 or title ilike 'мой %' or title ilike '% мой %' or title ilike '% мой';

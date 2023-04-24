@@ -1,17 +1,14 @@
 -- Наполняем жанры
-insert into genres(name)
-values('Pop');
-insert into genres(name)
-values('Rock');
-insert into genres(name)
-values('Jazz');
-insert into genres(name)
-values('Instrumental');
-insert into genres(name)
-values('Hip-hop');
+insert into genres(genre_name)
+values
+('Pop'),
+('Rock'),
+('Jazz'),
+('Instrumental'),
+('Hip-hop');
 
 -- Наполняем исполнителей
-insert into performers(first_name, last_name,band_name)
+insert into performers(first_name, last_name, band_name)
 values 
 ('Liam', 'Stratus', 'The Quantum Harmonies'),
 ('Zoe', 'Blackstone', 'Celestial Frequency'),
@@ -23,25 +20,21 @@ values
 ('Sienna', 'Sunfire', 'The Aurora Symphonies');
 
 -- Наполняем альбомы
-insert into albums(name, cover_art)
+insert into albums(album_title, cover_art, album_year)
 values 
-('Quantum Melodies', '/home/user/music/covers/quantum_melodies.jpg'),
-('Celestial Awakening', '/home/user/music/covers/celestial_awakening.jpg'),
-('Time Traveler''s Serenade', '/home/user/music/covers/time_travelers_serenade.jpg'),
-('Ethereal Journey', '/home/user/music/covers/ethereal_journey.jpg'),
-('Dreamwalker''s Lullaby', '	/home/user/music/covers/dreamwalkers_lullaby.jpg'),
-('Constellation Stories', '/home/user/music/covers/constellation_stories.jpg'),
-('Landscapes of Sound', '/home/user/music/covers/landscapes_of_sound.jpg'),
-('Aurora''s Symphony', '	/home/user/music/covers/auroras_symphony.jpg');
+('Quantum Melodies', '/home/user/music/covers/quantum_melodies.jpg', 2018),
+('Celestial Awakening', '/home/user/music/covers/celestial_awakening.jpg', 2018),
+('Time Traveler''s Serenade', '/home/user/music/covers/time_travelers_serenade.jpg', 2019),
+('Ethereal Journey', '/home/user/music/covers/ethereal_journey.jpg', 2019),
+('Dreamwalker''s Lullaby', '	/home/user/music/covers/dreamwalkers_lullaby.jpg', 2020),
+('Constellation Stories', '/home/user/music/covers/constellation_stories.jpg', 2020),
+('Landscapes of Sound', '/home/user/music/covers/landscapes_of_sound.jpg', 2021),
+('Aurora''s Symphony', '	/home/user/music/covers/auroras_symphony.jpg', 2021);
 
 -- Наполняем треки
--- Но сначала меняем тип данных параметра duration в отношении tracks c data на integer, согласно рекомендации к прошлому заданию
-ALTER TABLE tracks
-ALTER COLUMN duration type int USING EXTRACT(EPOCH FROM duration)::integer;
-
-insert into tracks(title, duration, album_id)
+insert into tracks(track_title, duration, album_id)
 values
-('Quantum Breeze', 215, '1'),
+('Quantum Breeze', 85, '1'),
 ('Harmonic Nebula', 182, '1'),
 ('Frequency of My Stars', 194, '2'),
 ('Cosmic Whispers', 217, '2'),
@@ -56,10 +49,11 @@ values
 ('Sonic Horizons', 144, '7'),
 ('Rhythms of the Forest', 167, '7'),
 ('Symphony of Light', 124, '8'),
-('Aurora''s Embrace', 166, '8');
+('Aurora''s Embrace', 166, '8')
+('Hail Mary Hail', 254, '4');
 
 -- Наполняем сборники
-insert into compilations(name, year, cover_art)
+insert into compilations(compilation_title, year, cover_art)
 values
 ('Space-Time Chronicles', '2023', '/home/user/music/covers/space_time_chronicles.jpg'),
 ('Celestial Soundscapes', '2023', '/home/user/music/covers/celestial_soundscapes.jpg'),
@@ -112,4 +106,5 @@ values
 (3, 5),
 (3, 6),
 (4, 7),
-(5, 8);
+(5, 8),
+(2, 1);

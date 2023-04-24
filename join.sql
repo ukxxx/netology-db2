@@ -1,12 +1,12 @@
 -- Извлекаем количество исполнителей в каждом жанре.
-select name, count(first_name) q from genres g 
+select genre_name, count(first_name) q from genres g 
 join genresperformers gp on g.genre_id = gp.genre_id 
 join performers p on gp.performer_id = p.performer_id 
-group by name
+group by genre_name
 order by q desc;
 
 -- Извлекаем количество треков, вошедших в альбомы 2019–2020 годов. 
--- По поводу вашего комментария: что именно требуется вывести абсолютно не понятно из формулировки задания, стоит подуать над переформулированием.
+-- По поводу вашего комментария: что именно требуется вывести абсолютно не понятно из формулировки в задании, стоит подуать над переформулированием.
 /* Старое решение
 select album_title, count(track_title) q from albums a 
 join tracks t on a.album_id = t.album_id
@@ -51,7 +51,7 @@ where first_name = 'Ethan' and last_name = 'Lockwood'
 group by compilation_title;
 */
 
--- На мой взгляд, группировку луше было бы оставить (дело не в использовании аггрегирующих функций), так как исполнитель имеет 2 трека в сборнике "Timeless Tunes" и поэтому выводится дважды - не комильфо
+-- На мой взгляд, группировку луше было бы оставить (дело не в использовании агрегирующих функций), так как исполнитель имеет 2 трека в сборнике "Timeless Tunes" и поэтому выводится дважды - не комильфо
 select compilation_title from compilations c 
 join compilationstracks ct on c.compilation_id = ct.compilation_id 
 join tracks t on ct.track_id = t.track_id 
